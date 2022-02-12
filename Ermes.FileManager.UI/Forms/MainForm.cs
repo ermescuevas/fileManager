@@ -71,7 +71,7 @@ namespace Ermes.FileManager.UI
             if (!string.IsNullOrEmpty(txtDirectory.Text))
             {
                 var parentDirectory = _fileProvider.GetParentDirectory(txtDirectory.Text);
-                if (_fileProvider.DirectoryExists(parentDirectory))
+                if (!string.IsNullOrEmpty(parentDirectory) && _fileProvider.DirectoryExists(parentDirectory))
                 {
                     txtDirectory.Text = parentDirectory;
                     LoadFilesAndDirectories();

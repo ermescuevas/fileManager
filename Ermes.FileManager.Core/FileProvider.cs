@@ -165,7 +165,7 @@ namespace Ermes.FileManager.Core
         }
         public string GetParentDirectory(string directoryPath)
         {
-            return Directory.GetParent(directoryPath).FullName;
+            return Directory.GetParent(directoryPath)?.FullName;
         }
         public string GetFileExtension(string filePath)
         {
