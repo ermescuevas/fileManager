@@ -134,6 +134,11 @@ namespace Ermes.FileManager.UI
             else
                 HandledMessageShown(1);
         }
+        private void btnCreateBreadcrumbs_Click(object sender, EventArgs e)
+        {
+            var breadCrumbForm = new BreadcrumbGeneratorForm();
+            breadCrumbForm.ShowDialog();
+        }
 
         #endregion
 
@@ -149,7 +154,7 @@ namespace Ermes.FileManager.UI
                 {
                     foreach (var directory in _fileProvider.EnumeratedDirectories(txtDirectory.Text))
                         lsvFileManager.Items.Add(directory, _fileProvider.GetFileName(directory), 0);
-                    foreach (var file in _fileProvider.EnumerateFiles(txtDirectory.Text, "*.txt"))
+                    foreach (var file in _fileProvider.EnumerateFiles(txtDirectory.Text, "*.*"))
                         lsvFileManager.Items.Add(file, _fileProvider.GetFileName(file), 1);
                 }
             }
@@ -196,11 +201,5 @@ namespace Ermes.FileManager.UI
         }
 
         #endregion
-
-        private void btnCreateBreadcrumbs_Click(object sender, EventArgs e)
-        {
-            var breadCrumbForm = new BreadcrumbGeneratorForm();
-            breadCrumbForm.ShowDialog();
-        }
     }
 }
