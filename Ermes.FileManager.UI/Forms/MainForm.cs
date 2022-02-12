@@ -38,6 +38,7 @@ namespace Ermes.FileManager.UI
         }
         private void btnCreateFile_Click(object sender, EventArgs e)
         {
+
             if (!string.IsNullOrEmpty(txtPlainText.Text) && !string.IsNullOrEmpty(txtDirectory.Text) && !string.IsNullOrEmpty(txtName.Text))
             {
                 CreateFile();
@@ -46,6 +47,7 @@ namespace Ermes.FileManager.UI
             }
             else
                 HandledMessageShown(2);
+
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {

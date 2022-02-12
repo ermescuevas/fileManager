@@ -27,8 +27,7 @@ namespace Ermes.FileManager.Core
         }
         private void SetAttributesNormal(string path)
         {
-            var dir = new DirectoryInfo(path);
-            dir.Attributes = FileAttributes.Normal;
+            var dir = new DirectoryInfo(path) { Attributes = FileAttributes.Normal };
             foreach (var subDir in dir.GetDirectories())
                 SetAttributesNormal(subDir.FullName);
             foreach (var file in dir.GetFiles())
@@ -81,7 +80,7 @@ namespace Ermes.FileManager.Core
         public void DirectoryCopy(string sourceDir, string destinationDir, bool topDirectoryOnly = true)
         {
             if (!DirectoryExists(sourceDir))
-            return;
+                return;
             var directorySource = new DirectoryInfo(sourceDir);
             var directories = directorySource.GetDirectories();
             CreateDirectory(destinationDir);
